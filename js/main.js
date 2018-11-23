@@ -191,7 +191,7 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map
     const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.newMap);
-    marker.addEventListener("click", onClick);
+    marker.addListener("click", onClick);
     function onClick() {
       window.location.href = marker.options.url;
     }
