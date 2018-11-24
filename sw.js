@@ -45,16 +45,13 @@ self.addEventListener('activate', function(event) {
   );
 });
 
-self.addEventListener('fetch',function(event) {
+self.addEventListener('fetch', function(event) {
 	event.respondWith(
-		caches.match(event.request).then(function(response) {
-			if(response.status == 404) {
-				return new Response("Whoops, not found");
-			}
-			return response;
-		}).catch(function() {
-			return new Response("Uhh, no that totally failed");
+		caches.match(event.request)
+		.then(function(response) {
+			return response || fetch(event.request);
 		})
-	);	
+	);
 });
 
+//console.log(cache.status);
