@@ -1,6 +1,9 @@
-# Mobile Web Specialist Certification Course
+#FEND Restaurant Review App(Stage 1)
 ---
-#### _Three Stage Course Material Project - Restaurant Reviews_
+
+Description
+============
+For the Restaurant Reviews projects, I have incrementally convert a static webpage to a mobile-ready web application. This project was a static design that lacks accessibility and I have convert the design to be responsive on different sized displays and accessible for screen reader use. I have also converted this to a Progressive Web Application by caching some assets for offline use
 
 ## Project Overview: Stage 1
 
