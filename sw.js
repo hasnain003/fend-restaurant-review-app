@@ -53,10 +53,8 @@ self.addEventListener('fetch', function(event) {
        		 if (response) {
           		return response;
         	}
-        	// IMPORTANT: Clone the request. A request is a stream and
-        	// can only be consumed once. Since we are consuming this
-        	// once by cache and once by the browser for fetch, we need
-        	// to clone the response.
+        	// Clone the request.
+
         	var fetchRequest = event.request.clone();
 
         	return fetch(fetchRequest).then(
@@ -66,13 +64,10 @@ self.addEventListener('fetch', function(event) {
               	return response;
             	}
 
-            	// IMPORTANT: Clone the response. A response is a stream
-         	    // and because we want the browser to consume the response
-                // as well as the cache consuming the response, we need
-            	// to clone it so we have two streams.
+            	// Clone the response.
            		 var responseToCache = response.clone();
 
-            	caches.open(CACHE_NAME)
+            	caches.open(staticCacheName)
               		.then(function(cache) {
                 		cache.put(event.request, responseToCache);
               		});
