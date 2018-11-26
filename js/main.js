@@ -136,7 +136,7 @@ resetRestaurants = (restaurants) => {
 
   // Remove all map markers
   if (self.markers) {
-    self.markers.forEach(marker => marker.remove());
+    self.markers.forEach(marker => marker.setMap(null));
   }
   self.markers = [];
   self.restaurants = restaurants;
@@ -162,6 +162,7 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = `${restaurant.name} Restaurant`;
   li.append(image);
 
   const name = document.createElement('h1');
